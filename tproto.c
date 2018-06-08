@@ -298,7 +298,7 @@ void listen_for_data() {
       return;
     }
   } while (running);
-  const char file_name_template[] = "received/XXXXXX";
+  const char file_name_template[] = "received/recvd.XXXXXX";
   char* file_name = malloc(sizeof(file_name_template));
   if (!file_name) {
     die("failed to malloc");

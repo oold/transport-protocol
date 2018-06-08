@@ -5,4 +5,4 @@ tproto:
 
 clean:
 	rm tproto
-	rm received/*
+	rm received/recvd.*
