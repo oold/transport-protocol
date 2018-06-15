@@ -3,7 +3,6 @@
 #pragma once
 
 #include "options.h"
-#include <stdint.h>
 #include <inttypes.h>
 
 // Flags
