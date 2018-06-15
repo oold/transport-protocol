@@ -298,12 +298,10 @@ void listen_for_data() {
       return;
     }
   } while (running);
-  const char file_name_template[] = "received/recvd.XXXXXX";
-  char* file_name = malloc(sizeof(file_name_template));
+  char* file_name = strdup("received/recvd.XXXXXX");
   if (!file_name) {
-    die("failed to malloc");
+    die("failed to strdup");
   }
-  strcpy(file_name, file_name_template);
   int out_file = mkstemp(file_name);
   if (!out_file) {
     die("could not create output file");
