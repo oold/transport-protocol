@@ -74,7 +74,7 @@ void test_send_stream(
   puts("Sent data successfully");
 }
 
-uint16_t readPort(char* restrict in) {
+uint16_t read_port(char* restrict in) {
   char* end;
   long port = strtol(in, &end, 10);
   if (errno != 0 || port < 0 || port > UINT16_MAX) {
@@ -88,14 +88,14 @@ int main(int argc, char* argv[]) {
     die("not enough arguments");
   }
   create_socket();
-  uint16_t own_port = readPort(argv[1]);
+  uint16_t own_port = read_port(argv[1]);
   bind_to_port(own_port);
   if (argc == 2) {
     while (1) {
       listen_for_data();
     }
   } else if (argc == 6) {
-    uint16_t dest_port = readPort(argv[3]);
+    uint16_t dest_port = read_port(argv[3]);
     if (!strcmp(argv[4], "--bulk")) {
       test_send_bulk(argv[5], argv[2], dest_port);
     } else if (!strcmp(argv[4], "--file")) {
